@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css">
+        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <style type="text/css">
+            html, body { height: 100%; margin: 0; padding: 0; }
+            #map { height: 100%; }
+            .list_item {
+                margin: 5px;
+                padding: 5px;
+                width: 95%;
+                float: left;
+            }
+           
+        
+        </style>
+    
+    </head>
+    <body>
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <header class="mdl-layout__header">
+            <div class="mdl-layout-icon"></div>
+            <div class="mdl-layout__header-row">
+              <!-- Title -->
+              <span class="mdl-layout-title">View Route</span>
+              <!-- Add spacer, to align navigation to the right -->
+              <div class="mdl-layout-spacer"></div>
+              <!-- Navigation. We hide it in small screens. -->
+              <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Home</a>
+              </nav>
+                
+            </div>
+          </header>
+          <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">My Walk</span>
+            <nav class="mdl-navigation">
+              <a class="mdl-navigation__link" href="">Home</a>
+              <a class="mdl-navigation__link" href="">Record Route</a>
+              <a class="mdl-navigation__link" href="">View Route</a>
+              <a class="mdl-navigation__link" href="">Settings</a>
+              <a class="mdl-navigation__link" href="">Help</a>
+            </nav>
+          </div>
+            <div id="route-container">
+
+            
+            </div>
+               
+        </div>
+    
+          
+        
+        <script>
+            var map;
+            function initMap() {
+
+                map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: -37.9120467, lng: 145.1343136},
+                zoom: 17
+              });  
+                
+                createPage();
+            }
+            
+            function createPage(){
+                var button = document.createElement('button');
+                var contentDiv=Document.getElementById("route-container");
+                console.log(contentDiv);
+                
+               
+                var textNode = document.createTextNode('Click Me!');
+                button.appendChild(textNode);
+                button.className = 'mdl-button mdl-js-button mdl-js-ripple-effect';
+                componentHandler.upgradeElement(button);
+                document.getElementById('route-container').appendChild(button);
+                componentHandler.upgradeElement(contentDiv);
+            }
+       </script>
+        <script async defer
+          src="https://maps.googleapis.com/maps/api/js?v=3&amp;key=&amp;callback=initMap">
+        </script>
+
+    
+    
+    </body>
+</html>

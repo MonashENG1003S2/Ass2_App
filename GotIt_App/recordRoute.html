@@ -1,0 +1,183 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css">
+        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+        <script type="text/javascript" src = "recordRoute.js"> </script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <style type="text/css">
+            html, body { height: 100%; margin: 0; padding: 0; }
+            #map { height: 82%; }
+            button.mdl-button { width: 100%;}
+            .user-controls-buttons
+            {
+              position:fixed;
+              bottom:0px;
+              right: 2em;
+              z-index: 3;                 
+            }
+            
+            .mdl-button{
+                display: block;
+                margin-bottom: 0.25em;
+                margin-top: 0.25em;
+                margin-left: auto;
+                margin-right: 1em;
+                border-radius: 10em;
+               
+            }
+            .user-control-labels{
+                height: 8%;
+                            
+            }
+            /*.user-control-labels{
+                position: fixed;
+                z-index: 2;
+                top: 10%;
+                right: 15px;
+                text-align: right;
+                width: 10%;
+                border-style: solid;
+                border-color: black;
+            }*/
+            .menu-name{
+                text-align: center;
+            }
+            .material-icons{
+                align-items: center;
+                text-align: center;
+            }
+            .title-labels{
+                display: inline-block;
+                text-align: left;
+                height: 8%;
+                          
+            }
+            #speed,#time {
+                text-align: right;
+            }
+            
+         
+        
+        </style>
+    
+    </head>
+    <body>
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <header class="mdl-layout__header">
+            <div class="mdl-layout-icon"></div>
+            <div class="mdl-layout__header-row">
+              <!-- Title -->
+              <span class="mdl-layout-title">Recrd Route</span>
+              <!-- Add spacer, to align navigation to the right -->
+              <div class="mdl-layout-spacer"></div>
+              <!-- Navigation. We hide it in small screens. -->
+              <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Home</a>
+              </nav>
+                
+            </div>
+          </header>
+          <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">My Walk</span>
+            <nav class="mdl-navigation">
+              <a class="mdl-navigation__link" href="">Home</a>
+              <a class="mdl-navigation__link" href="">Record Route</a>
+              <a class="mdl-navigation__link" href="">View Route</a>
+              <a class="mdl-navigation__link" href="">Settings</a>
+              <a class="mdl-navigation__link" href="">Help</a>
+            </nav>
+          </div>
+            <div class="mdl-layout__content">
+                <div class="user-control-labels">                            
+                        <div class="title-labels" ><label class="titleL" >Average speed : </label><label id="speed">45km/h</label></div>
+                        <div class="title-labels"><label class="titleL">Time : </label><label id="time">02:56:40</label></div>
+                                    
+                </div>
+                
+                    <div id="map"></div>  
+                    <div class="user-controls-buttons">
+                   
+                        
+                            <button id="startR" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="routeStart()">
+                            Start</button>
+                    
+                            <button id="resetR" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="routeClear()">
+                            Reset</button>
+                    
+                            <button id="saveR" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="routeSave()">
+                                Save</button>
+                            <button id="panR" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="pointPan()">
+                            Pan</button>
+                    
+                          
+                </div>
+                
+              
+                     
+            
+            
+            
+        </div>
+    
+          
+        
+        <script>
+            //src="recordRoute.js"
+        </script>
+            
+        <script>
+            
+            var map;
+            var markerCurrent;
+            var pathLine;
+            var coord={lat:null,lng:null};
+            var routePoints=[];
+            var path=[];
+            var watchID;
+            var timerV;
+            var modeStart=false;
+            var duration=0;
+            var startDate=null;
+            
+            
+            
+            function initMap() {
+
+                map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: -37.9120467, lng: 145.1343136},
+                zoom: 17
+              });      
+                
+                markerCurrent = new google.maps.Marker({
+                    position: {lat: -37.9120467, lng: 145.1343136},
+                    map: map,
+                    title: 'Hello World!'
+                  });
+                
+           
+                
+                pathLine = new google.maps.Polyline({
+                    strokeColor: '#000000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 3
+                  });
+                pathLine.setMap(map);
+                
+                
+                
+                initGPS();     
+                
+                
+                
+            }
+            
+        </script>
+        <script async defer
+          src="https://maps.googleapis.com/maps/api/js?v=3&amp;key=&amp;callback=initMap">
+        </script>
+
+    
+    
+    </body>
+</html>

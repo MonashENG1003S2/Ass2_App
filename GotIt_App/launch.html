@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css">
+        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <style type="text/css">
+            html, body { height: 100%; margin: 0; padding: 0; }
+            button.mdl-button { width: 100%; 
+                                height: 40%;}
+        
+        
+        </style>
+    
+    </head>
+    <body>
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <header class="mdl-layout__header">
+            <div class="mdl-layout-icon"></div>
+            <div class="mdl-layout__header-row">
+              <!-- Title -->
+              <span class="mdl-layout-title">MyWalk</span>
+              <!-- Add spacer, to align navigation to the right -->
+              <div class="mdl-layout-spacer"></div>
+              <!-- Navigation. We hide it in small screens. -->
+              <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Home</a>
+              </nav>
+                
+            </div>
+          </header>
+          <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">My Walk</span>
+            <nav class="mdl-navigation">
+              <a class="mdl-navigation__link" href="">Home</a>
+              <a class="mdl-navigation__link" href="https://eng1003.eng.monash.edu/58dum/GotIt_App/recordRoute.html">Record Route</a>
+              <a class="mdl-navigation__link" href="">View Route</a>
+            <a class="mdl-navigation__link" href="">Settings</a>
+              <a class="mdl-navigation__link" href="">Help</a>
+            </nav>
+          </div>
+            <main class="mdl-layout__content">
+                <div class="mdl-grid">                    
+                      <div class="mdl-cell mdl-cell--2-col">
+                        <button id="recordL" href="https://eng1003.eng.monash.edu/58dum/GotIt_App/recordRoute.html" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                            Record Route
+                        </button>
+                    </div>
+                      <div class="mdl-cell mdl-cell--2-col">
+                        <button id="viewL" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                            View Route
+                        </button>
+                    </div>
+                      <div class="mdl-cell mdl-cell--2-col">
+                     <button id="settingsL" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                            Settings
+                        </button>
+                    </div>
+                      <div class="mdl-cell mdl-cell--2-col">
+                    
+                    <button id="helpL" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                            HELP
+                     
+                        </button>
+                    </div> 
+                
+                </div>          
+            
+            </main>
+               
+        </div>
+    
+         
+
+    
+    
+    </body>
+</html>
